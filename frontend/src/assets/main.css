@@ -1,1 +1,10 @@
-@import './base.css';
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../components/ui/font/proxima-nova.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+    font-family: 'Proxima Nova', sans-serif;
+}
