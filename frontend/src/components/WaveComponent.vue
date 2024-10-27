@@ -14,11 +14,11 @@
           </linearGradient>
         </defs>
         <path
-          d="M0,50
-             C250,0 350,100 500,50
-             C650,0 750,100 1000,50
-             C1250,0 1350,100 1500,50
-             C1650,0 1750,100 2000,50
+          d="M0,70
+             C250,-10 350,150 500,70
+             C650,-10 750,150 1000,70
+             C1250,-10 1350,150 1500,70
+             C1650,-10 1750,150 2000,70
              L2000,150 L0,150 Z"
           fill="url(#waveGradient)"
         />
@@ -37,11 +37,11 @@
           </linearGradient>
         </defs>
         <path
-          d="M0,25
-             C250,75 350,0 500,25
-             C650,75 750,0 1000,25
-             C1250,75 1350,0 1500,25
-             C1650,75 1750,0 2000,25
+          d="M0,70
+             C250,-10 350,150 500,70
+             C650,-10 750,150 1000,70
+             C1250,-10 1350,150 1500,70
+             C1650,-10 1750,150 2000,70
              L2000,150 L0,150 Z"
           fill="url(#waveGradient2)"
         />
@@ -62,7 +62,7 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 300px; /* Added fixed height */
+  height: 200px;
   overflow: hidden;
   z-index: 1;
 }
@@ -83,12 +83,12 @@ export default {
 }
 
 .wave-base {
-  animation: moveWave 10s linear infinite;
+  animation: moveWave 35s linear infinite;
 }
 
 .wave-overlay {
   opacity: 0.5;
-  animation: moveWave 8s linear infinite;
+  animation: moveWave 18s linear infinite;
 }
 
 @keyframes moveWave {
