@@ -1,10 +1,10 @@
-const express = require('express');
-const cors = require('cors');
+import express, { json } from 'express';
+import cors from 'cors';
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
-app.use(express.json());
+app.use(json());
 
 // Endpoint to analyze products
 app.post('/analyze', async (req, res) => {
