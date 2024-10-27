@@ -19,10 +19,12 @@ const productDetailsArray = Array.from(productListings)
         const price = listing.querySelector('.a-price .a-offscreen')
             ? listing.querySelector('.a-price .a-offscreen').textContent
             : null;
+        const primeElement = listing.querySelector('.aok-relative.s-icon-text-medium.s-prime');
+        const isPrime = primeElement !== null;
 
         // Only return product details if a price is available
         if (price) {
-            return { index, sellerUUID, isShippedByAmazon, title, productUrl, rating, ratingCount, price };
+            return { index, sellerUUID, isShippedByAmazon, title, productUrl, rating, ratingCount, price, isPrime };
         } else {
             return null; // Skip items without a price
         }
@@ -36,6 +38,7 @@ chrome.runtime.sendMessage({
 });
 
 // Listen for messages from the background script to display trust scores
+// Listen for messages from the background script to display trust scores
 chrome.runtime.onMessage.addListener((request) => {
     if (request.action === "displayTrustScores") {
         console.log("Trust Scores received in content.js:", request.trustScores);
@@ -48,7 +51,10 @@ chrome.runtime.onMessage.addListener((request) => {
                 // Create an element to display the trust score
                 const scoreElement = document.createElement("div");
                 scoreElement.innerText = `Trust Score: ${scoreData.trustScore}`;
-                scoreElement.style.color = "green";
+                
+                // Set color based on the Trust Score
+                scoreElement.style.color = scoreData.trustScore < 80 ? "#CC5500" : "green";
+                
                 scoreElement.style.fontWeight = "bold";
                 scoreElement.style.marginTop = "8px"; // Space from other elements
 
