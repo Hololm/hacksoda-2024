@@ -99,7 +99,7 @@ def _parse_seller(html: str) -> Seller:
             ).group(1)),
         ) if reviews_json else None,
         business_name=soup.find("span", text=re.compile("Business Name:\n")).find_next("span").text,
-        business_address=soup.find("span", text=re.compile("Business Address:\n")).find_next("span").text,
+        business_address="\n".join([address_element.text.strip() for address_element in soup.find_all("div", {"class": "a-row a-spacing-none indent-left"})]),
         ratings=[],
         is_pro=bool(soup.find("a", text=re.compile("See all products"))),
         just_launched=bool(soup.find("span", text=re.compile("Just launched"))),
