@@ -62,18 +62,4 @@ export default {
   height: 60%;
   z-index: 10;
 }
-
-@media (max-width: 768px) {
-  .hero-container {
-    width: 90%;
-    margin-left: 0;
-  }
-
-  .extension-gui {
-    position: relative;
-    width: 80%;
-    max-width: none;
-    margin: 2rem auto 0;
-  }
-}
 </style>

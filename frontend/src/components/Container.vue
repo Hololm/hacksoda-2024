@@ -14,7 +14,7 @@ defineOptions({
       <LandingText />
       <WebsiteHero />
     </div>
-    <Footer />
+          <Footer />
   </div>
 </template>
 
