@@ -1,5 +1,6 @@
 let trustScores = {};
 let productDetails = {};
+let processedSellerUUIDs = new Set();
 
 // Select all product listings
 const productListings = document.querySelectorAll('.s-result-item');
@@ -62,35 +63,43 @@ chrome.runtime.sendMessage({
     productDetailsArray
 });
 
-// Single message listener for all incoming messages
+// Message listener for incoming messages
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "displayTrustScores") {
+        // Store trust scores
         trustScores = request.trustScores.reduce((acc, score) => {
             acc[score.sellerUUID] = score.trustScore;
             return acc;
         }, {});
 
-        // Display scores on page
+        // Remove any existing trust scores first
+        document.querySelectorAll('.trustify-score').forEach(el => el.remove());
+
+        // Display scores on page, checking for duplicates
         request.trustScores.forEach(scoreData => {
-            const productListing = document.querySelector(`.s-result-item[data-asin="${scoreData.sellerUUID}"]`);
-            if (productListing) {
-                const scoreElement = document.createElement("div");
-                scoreElement.innerText = `Trust Score: ${scoreData.trustScore}`;
-                scoreElement.style.fontWeight = "bold";
-                scoreElement.style.fontSize = "16px";
-                scoreElement.style.marginTop = "8px";
-                scoreElement.style.fontFamily = "Proxima Nova, sans-serif";
+            if (!processedSellerUUIDs.has(scoreData.sellerUUID)) {
+                const productListing = document.querySelector(`.s-result-item[data-asin="${scoreData.sellerUUID}"]`);
+                if (productListing) {
+                    const scoreElement = document.createElement("div");
+                    scoreElement.className = 'trustify-score';
+                    scoreElement.innerText = `Trust Score: ${scoreData.trustScore}`;
+                    scoreElement.style.fontWeight = "bold";
+                    scoreElement.style.fontSize = "16px";
+                    scoreElement.style.marginTop = "8px";
+                    scoreElement.style.fontFamily = "Proxima Nova, sans-serif";
 
-                if (scoreData.trustScore >= 90) {
-                    scoreElement.style.color = "#22c55e";
-                } else if (scoreData.trustScore >= 70) {
-                    scoreElement.style.color = "#eab308";
-                } else {
-                    scoreElement.style.color = "#ef4444";
+                    if (scoreData.trustScore >= 90) {
+                        scoreElement.style.color = "#22c55e";
+                    } else if (scoreData.trustScore >= 70) {
+                        scoreElement.style.color = "#eab308";
+                    } else {
+                        scoreElement.style.color = "#ef4444";
+                    }
+
+                    const insertPosition = productListing.querySelector('.s-title-instructions-style') || productListing;
+                    insertPosition.appendChild(scoreElement);
+                    processedSellerUUIDs.add(scoreData.sellerUUID);
                 }
-
-                const insertPosition = productListing.querySelector('.s-title-instructions-style') || productListing;
-                insertPosition.appendChild(scoreElement);
             }
         });
     }
