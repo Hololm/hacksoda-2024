@@ -2,7 +2,7 @@
   <div class="hero-wrapper" ref="heroWrapper">
     <div class="hero-container" ref="heroContainer">
       <div class="hero-image">
-        <img src="@/components/ui/amazon2.png" alt="Amazon Screenshot">
+        <img src="@/components/ui/amazon.png" alt="Amazon Screenshot">
       </div>
     </div>
     <div class="gui-container">
@@ -88,8 +88,8 @@ export default {
   top: -10px;
   left: -10px;
   width: calc(100% + 20px);
-  height: calc(100% + 20px);
-  background-image: linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2));
+  height: calc(100% + 120px);
+  background-image: linear-gradient(to left, rgba(224, 25, 25, 0.2), rgba(123, 27, 229, 0.2));
   border-radius: 20px;
   transform: rotate(3deg);
   z-index: -1;

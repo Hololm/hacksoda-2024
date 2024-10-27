@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "TrustMeter",
+    "name": "Trustify",
     "version": "0.1",
-    "description": "Calculates a trust score for Amazon sellers based on shipping and seller info.",
+    "description": "Verify trusted Amazon sellers and avoid scams",
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
       {

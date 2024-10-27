@@ -7,84 +7,39 @@
       <div class="card-details">
         <p class="card-title">{{ title }}</p>
         <div class="card-subtext">
-          <p>{{ percentage }}%</p>
-          <component :is="checkmarkComponent" class="checkmark" />
+          <span :class="['trust-score', scoreColorClass]">Trust Score: {{ score }}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import RedCheckmark from '@/components/ui/checkmarks/red_checkmark.svg';
-import YellowCheckmark from '@/components/ui/checkmarks/yellow_checkmark.svg';
-import GreenCheckmark from '@/components/ui/checkmarks/green_checkmark.svg';
-
-export default {
-  name: 'HeroCard',
-  components: {
-    RedCheckmark,
-    YellowCheckmark,
-    GreenCheckmark
-  },
-  props: {
-    title: {
-      type: String,
-      default: 'Hero Title'
-    },
-    avatarUrl: {
-      type: String,
-      default: 'https://placehold.co/512'
-    },
-    percentage: {
-      type: Number,
-      default: 100,
-      validator: value => value >= 0 && value <= 100
-    },
-    status: {
-      type: String,
-      default: 'green',
-      validator: value => ['red', 'yellow', 'green'].includes(value)
-    }
-  },
-  computed: {
-    checkmarkComponent() {
-      const checkmarks = {
-        red: 'RedCheckmark',
-        yellow: 'YellowCheckmark',
-        green: 'GreenCheckmark'
-      };
-      return checkmarks[this.status];
-    }
-  }
-}
-</script>
-
 <style scoped>
 .hero-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 12px;
   padding: 12px;
-  transition: all 0.3s ease;
-  height: calc((100vh - 40px - 48px) / 3);
-  min-height: 40px;
-  max-height: 80px;
-  margin: 0;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hero-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .card-content {
   display: flex;
-  align-items: center; /* Centers avatar vertically */
-  height: 100%;
+  align-items: center;
+  gap: 12px;
 }
 
 .hero-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
   overflow: hidden;
-  flex-shrink: 0; /* Prevents avatar from shrinking */
+  flex-shrink: 0;
 }
 
 .hero-avatar img {
@@ -94,41 +49,50 @@ export default {
 }
 
 .card-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 12px;
-  gap: 4px; /* Adds space between title and subtext */
+  flex: 1;
+  min-width: 0;
 }
 
 .card-title {
-  font-family: "Gilroy Medium", sans-serif;
-  margin: 0; /* Remove default margins */
+  margin: 0 0 4px 0;
   font-size: 12px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.3;
+  font-family: "Gilroy Medium", sans-serif;
 }
 
-.card-subtext {
-  display: flex;
-  align-items: center;
-  gap: 4px; /* Space between checkmark and percentage */
-  font-size: 18px;
-}
-
-.card-subtext p {
-  margin: 0; /* Remove default margins */
-  order: 2; /* Moves percentage to the right */
+.trust-score {
+  font-size: 15px;
   font-family: "Proxima Nova", sans-serif;
 }
 
-:deep(.checkmark), /* For Vue scoped styles */
-.checkmark {
-  order: 1; /* Moves checkmark to the left */
-  width: 24px; /* Adjust size as needed */
-  height: 24px; /* Adjust size as needed */
+.trust-score.green {
+  color: #22c55e;
 }
 
-:deep(.checkmark svg) {
-  width: 100%;
-  height: 100%;
+.trust-score.yellow {
+  color: #eab308;
+}
+
+.trust-score.red {
+  color: #ef4444;
 }
 </style>
+
+<script>
+export default {
+  name: 'HeroCard',
+  props: {
+    title: String,
+    avatarUrl: String,
+    score: Number,
+    status: String
+  },
+  computed: {
+    scoreColorClass() {
+      return this.status;
+    }
+  }
+}
+</script>

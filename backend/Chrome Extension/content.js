@@ -56,6 +56,7 @@ chrome.runtime.onMessage.addListener((request) => {
                 scoreElement.style.color = scoreData.trustScore < 80 ? "#CC5500" : "green";
                 
                 scoreElement.style.fontWeight = "bold";
+                scoreElement.style.fontSize = "16px"; // Larger font for Clarity
                 scoreElement.style.marginTop = "8px"; // Space from other elements
 
                 // Insert the Trust Score below the title or rating section

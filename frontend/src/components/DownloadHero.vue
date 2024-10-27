@@ -39,6 +39,7 @@ export default {
 
 .inner-frame {
   position: relative;
+  gap: 10px;
   height: 40px;
   border-radius: 16px;
   background-color: white;
@@ -49,6 +50,7 @@ export default {
   justify-content: center;
   width: 100%;
   border: 3px solid #e0e0e0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.03);
   background-image: linear-gradient(white, white),
                     linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2));
   background-origin: border-box;
@@ -83,6 +85,5 @@ export default {
   width: 36px;
   height: 36px;
   flex-shrink: 0;
-  padding-right: 10px;
 }
 </style>

@@ -1,6 +1,9 @@
 <template>
   <nav class="navbar">
-    <router-link to="./"><div class="logo">Trustify</div></router-link>
+    <TrustifyLogo class="company-logo"/>
+    <router-link to="./">
+      <div class="logo">Trustify</div>
+    </router-link>
     <div class="nav-buttons">
       <button class="download-button">
         <img class="browser-logo" src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Chrome Logo">
@@ -15,8 +18,13 @@
 </template>
 
 <script>
+import TrustifyLogo from '@/components/ui/trustify.svg';
+
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  components: {
+    TrustifyLogo
+  }
 }
 </script>
 
@@ -29,59 +37,83 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  backdrop-filter: blur(5px);
-  background-image: linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2));
+  padding: 1rem 6rem 1rem 2.5rem;
+  background: white; /* Change to solid white background */
   z-index: 99999;
-  border-bottom: 0.2rem solid rgba(210, 210, 210, 0.1);
+  box-shadow: 0 3px 13px rgba(0, 0, 0, 0.06); /* Subtle shadow instead of border */
 }
 
 .navbar a {
   text-decoration: none;
 }
 
+.company-logo {
+  width: 128px; /* Smaller logo */
+  height: 128px;
+  position: absolute;
+  color: #22c55e; /* Match the modern green from earlier */
+}
+
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2.2rem;
   color: #0a2540;
-  text-decoration: none;
+  padding-left: 100px;
+  position: relative;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 100px; /* Match the padding-left */
+  width: 0;
+  height: 2px;
+  background-color: #0a2540;
+  transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+  width: calc(100% - 100px); /* Subtract the padding-left */
+}
+
+.nav-link:hover .logo-text::after {
+  width: 100%;
 }
 
 .nav-buttons {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Add space between buttons */
+  gap: 1rem;
 }
 
 .download-button {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 20px;
+  background-color: white;
+  border: 2px solid #f3f4f6; /* Light border */
+  border-radius: 8px; /* Slightly reduced radius */
   padding: 8px 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .download-button:hover {
-  background-color: #ffffff;
   transform: translateY(-0.12rem);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: #e5e7eb;
 }
 
 .browser-logo {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   margin-right: 8px;
 }
 
 .download-button span {
   font-size: 14px;
-  font-weight: bold;
-  color: #0a2540;
+  font-weight: 600; /* Slightly reduced from bold */
+  color: #1f2937; /* Slightly lighter than #0a2540 */
 }
 
 * {
