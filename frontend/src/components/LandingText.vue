@@ -30,6 +30,7 @@ export default {
   height: auto;
   width: 100%;
   margin-top: 5%;
+  z-index: 10;
 }
 
 .text-container {

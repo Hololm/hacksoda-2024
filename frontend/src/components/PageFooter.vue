@@ -44,6 +44,7 @@ export default {
   background-color: #fafafa;
   padding: 5px 0 0 0;  /* Reduced padding from 10px to 5px */
   width: 100%;
+  z-index: 10;
 }
 
 .footer-content {
@@ -51,7 +52,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 40px;
+  padding: 0 40px;
 }
 
 .footer-nav {

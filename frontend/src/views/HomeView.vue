@@ -9,6 +9,7 @@ import Container from "@/components/Container.vue";
     <NavBar/>
     <Container ref="containerRef"/>
   </div>
+
 </template>
 
 <style scoped>

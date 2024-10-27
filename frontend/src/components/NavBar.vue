@@ -30,8 +30,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(144, 191, 255, 0.4);
-  z-index: 1000;
+  background-image: linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2));
+  z-index: 99999;
   border-bottom: 0.2rem solid rgba(210, 210, 210, 0.1);
 }
 
@@ -68,7 +68,7 @@ export default {
 .download-button:hover {
   background-color: #ffffff;
   transform: translateY(-0.12rem);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .browser-logo {

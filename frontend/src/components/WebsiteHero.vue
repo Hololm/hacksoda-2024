@@ -2,7 +2,7 @@
   <div class="hero-wrapper" ref="heroWrapper">
     <div class="hero-container" ref="heroContainer">
       <div class="hero-image">
-        <img src="@/components/ui/amazon.png" alt="Amazon Screenshot">
+        <img src="@/components/ui/amazon2.png" alt="Amazon Screenshot">
       </div>
     </div>
     <ExtensionGUI class="extension-gui" ref="extensionGui" />
@@ -28,6 +28,8 @@ export default {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 0;
+  z-index: 5;
+  transform: translateY(-50px); /* Move the entire wrapper up */
 }
 
 .hero-container {
@@ -45,12 +47,20 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .hero-image img {
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
+}
+
+img {
+  border: 6px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2)) border-box;
+  border-radius: 12px;
 }
 
 .extension-gui {
