@@ -23,21 +23,27 @@ function calculateTrustScore(product, productArray) {
     return Math.round(Math.min(score, 100));
 }
 
-// Example usage within message handling in background.js
 chrome.runtime.onMessage.addListener((request, sender) => {
     if (request.action === "analyzeProductListings") {
-        console.log("Received product details:", JSON.stringify(request.productDetailsArray, null, 2));
+        console.log("Processing products:", request.productDetailsArray.length);
 
-        // Pass request.productDetailsArray to calculateTrustScore
-        const trustScores = request.productDetailsArray.map(product => ({
-            sellerUUID: product.sellerUUID,
-            trustScore: calculateTrustScore(product, request.productDetailsArray)
-        }));
+        try {
+            const trustScores = request.productDetailsArray.map(product => ({
+                sellerUUID: product.sellerUUID,
+                trustScore: calculateTrustScore(product, request.productDetailsArray)
+            }));
 
-        if (Array.isArray(trustScores)) {
-            chrome.tabs.sendMessage(sender.tab.id, { action: "displayTrustScores", trustScores });
-        } else {
-            console.error("Error: trustScores is not an array:", trustScores);
+            console.log("Calculated trust scores:", trustScores);
+
+            if (Array.isArray(trustScores) && trustScores.length > 0) {
+                chrome.tabs.sendMessage(sender.tab.id, {
+                    action: "displayTrustScores",
+                    trustScores
+                });
+            }
+        } catch (error) {
+            console.error("Error calculating trust scores:", error);
         }
     }
+    return true;
 });
