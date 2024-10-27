@@ -5,6 +5,16 @@
   font-style: normal;
 }
 
-* {
-    font-family: 'Proxima Nova', sans-serif;
+@font-face {
+  font-family: 'Gilroy Regular';
+  src: url('../components/ui/font/gilroy-regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy Medium';
+  src: url('../components/ui/font/gilroy-medium.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
