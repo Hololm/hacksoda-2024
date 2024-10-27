@@ -1,32 +1,40 @@
 // Function to calculate Trust Score based on product details
-function calculateTrustScore(product) {
+function calculateTrustScore(product, productArray) {
     let score = 0;
 
-    // Check if the product is shipped by Amazon and set the score accordingly
-    score = product.isShippedByAmazon ? 80 : 60;
+    // 1. Shipped by Amazon / Prime (60 Points)
+    score += (product.isShippedByAmazon || product.isPrime) ? 60 : 0;
 
-    // You can add more detailed scoring logic here, like sellerUUID checks, rating adjustments, etc.
-    
-    return score;
+    // 2. Price Score (20 Points)
+    const prices = productArray.map(p => parseFloat(p.price.replace(/[^\d.-]/g, '')));
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    const productPrice = parseFloat(product.price.replace(/[^\d.-]/g, ''));
+    const priceScore = 20 * (maxPrice - productPrice) / (maxPrice - minPrice);
+    score += priceScore;
+
+    // 3. Rating and Rating Count Score (20 Points)
+    const normalizedRating = product.rating ? product.rating / 5 : 0;
+    const ratingCountFactor = product.ratingCount ? 1 - Math.exp(-product.ratingCount / 500) : 0;
+    const ratingScore = 20 * (normalizedRating * ratingCountFactor);
+    score += ratingScore;
+
+    // Ensure score does not exceed 100
+    return Math.round(Math.min(score, 100));
 }
 
-// Listen for messages from content.js
+// Example usage within message handling in background.js
 chrome.runtime.onMessage.addListener((request, sender) => {
     if (request.action === "analyzeProductListings") {
         console.log("Received product details:", JSON.stringify(request.productDetailsArray, null, 2));
 
-        // Ensure each product has a trust score calculated
+        // Pass request.productDetailsArray to calculateTrustScore
         const trustScores = request.productDetailsArray.map(product => ({
-            sellerUUID: product.sellerUUID,    // Keep a reference to the seller UUID
-            trustScore: calculateTrustScore(product)  // Calculate and store the score
+            sellerUUID: product.sellerUUID,
+            trustScore: calculateTrustScore(product, request.productDetailsArray)
         }));
 
-        // Check and log the structure of trustScores array
-        console.log("Calculated trust scores:", JSON.stringify(trustScores, null, 2));
-
-        // Verify that trustScores is indeed an array before sending it
         if (Array.isArray(trustScores)) {
-            // Send the array of trust scores back to content.js for each product
             chrome.tabs.sendMessage(sender.tab.id, { action: "displayTrustScores", trustScores });
         } else {
             console.error("Error: trustScores is not an array:", trustScores);
