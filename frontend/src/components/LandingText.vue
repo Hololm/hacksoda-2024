@@ -29,7 +29,7 @@ export default {
   justify-content: flex-start;
   height: auto;
   width: 100%;
-  margin-top: -20px;
+  margin-top: 8%;
 }
 
 .text-container {
@@ -38,32 +38,27 @@ export default {
 }
 
 .subtext {
-  font-size: 36px;
+  font-size: 42px;
   font-family: "Gilroy Medium", sans-serif;
-  line-height: 1.4;
   margin: 0;
   padding: 0;
 }
 
 .download-text {
-  font-size: 24px;
+  font-size: 26px;
   font-family: "Gilroy Regular", sans-serif;
-  line-height: 1.1;
-  transform: translateY(2rem);
   padding-left: 0;
 }
 
 .title {
-  font-size: 64px;
+  font-size: 68px;
   font-family: "Proxima Nova", sans-serif;
-  line-height: 1.2;
   margin: 10px 0;
   padding: 0;
 }
 
 .hero-component {
-  margin-top: 16px;
-  transform: translateY(2rem);
+  margin-top: 1%;
   display: flex;
   flex-direction: row;
   gap: 40px;
