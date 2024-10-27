@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Trustify",
+    "version": "0.1",
+    "description": "Verify trusted Amazon sellers and avoid scams",
+    "action": {
+      "default_popup": "extension_menu/popup.html"
+    },
+  "icons": {
+    "128": "extension_menu/icons/extensionLogo.png"
+  },
+    "permissions": ["activeTab", "scripting"],
+    "content_scripts": [
+      {
+        "matches": ["*://www.amazon.com/s?k=*"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": ["http://localhost:3000/*"]
+  }
+  
