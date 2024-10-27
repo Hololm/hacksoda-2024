@@ -2,17 +2,22 @@
 import LandingText from "@/components/LandingText.vue";
 import WebsiteHero from "@/components/WebsiteHero.vue";
 import Footer from "@/components/PageFooter.vue";
+
+defineOptions({
+  name: 'Container'
+})
 </script>
 
 <template>
-  <div class="container">
-    <div class="side">
-      <LandingText/>
-      <WebsiteHero/>
+  <div class="container" ref="container">
+    <div class="side" ref="side">
+      <LandingText />
+      <WebsiteHero />
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
+
 
 <style scoped>
 .container {
@@ -21,6 +26,7 @@ import Footer from "@/components/PageFooter.vue";
   justify-content: space-between;
   height: 100vh;
   overflow: hidden;
+  transition: transform 0.1s ease-out;
 }
 
 .side {

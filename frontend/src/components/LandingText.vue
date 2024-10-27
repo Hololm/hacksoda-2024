@@ -29,7 +29,7 @@ export default {
   justify-content: flex-start;
   height: auto;
   width: 100%;
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 .text-container {

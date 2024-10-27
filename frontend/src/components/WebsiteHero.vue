@@ -1,13 +1,14 @@
 <template>
-  <div class="hero-wrapper">
-    <div class="hero-container">
+  <div class="hero-wrapper" ref="heroWrapper">
+    <div class="hero-container" ref="heroContainer">
       <div class="hero-image">
         <img src="@/components/ui/amazon.png" alt="Amazon Screenshot">
       </div>
     </div>
-    <ExtensionGUI class="extension-gui" />
+    <ExtensionGUI class="extension-gui" ref="extensionGui" />
   </div>
 </template>
+
 
 <script>
 import ExtensionGUI from "@/components/ExtensionGUI.vue";
