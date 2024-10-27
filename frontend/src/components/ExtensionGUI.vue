@@ -75,6 +75,8 @@
 .search-input {
   width: 100%;
   padding: 8px 32px 8px 12px;
+  margin-left: -12px;
+  margin-right: -12px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-family: "Gilroy Medium", sans-serif;
@@ -94,8 +96,8 @@
 
 .search-icon {
   position: absolute;
-  right: 10px;
-  color: #666;
+  right: 0;
+  color: #4b4b4b;
 }
 
 .extension-body {
