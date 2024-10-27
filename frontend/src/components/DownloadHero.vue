@@ -32,18 +32,17 @@ export default {
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 610px;
+  max-width: 550px;
 }
 
 .hero-frame {
   width: 100%;
-  max-width: 295px;
-  padding: 6px;
   flex: 1;
   min-width: 0;
 }
 
 .inner-frame {
+  height: 40px;
   border-radius: 16px;
   background-color: white;
   display: flex;
@@ -54,20 +53,21 @@ export default {
   padding: 10px;
   justify-content: center;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  border: 4px solid rgba(144, 191, 255, 0.6);
+  border: 3px solid rgba(144, 191, 255, 0.6);
   width: 100%;
 }
 
 .inner-frame:hover {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.2);
-  border: 4px solid rgba(144, 191, 255, 1);
+  border: 3px solid rgba(144, 191, 255, 1);
   transform: TranslateY(-0.2rem);
 }
 
 .inner-text {
   font-family: "Gilroy Medium", sans-serif;
-  font-size: 30px;
+  max-width: calc(100% - 48px);
+  font-size: 28px;
   color: rgb(0, 0, 0);
   margin: 0;
   padding: 0;
@@ -79,6 +79,8 @@ export default {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .logo {
