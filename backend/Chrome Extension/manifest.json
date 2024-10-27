@@ -6,6 +6,9 @@
     "action": {
       "default_popup": "extension_menu/popup.html"
     },
+  "icons": {
+    "128": "extension_menu/icons/extensionLogo.png"
+  },
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
       {
