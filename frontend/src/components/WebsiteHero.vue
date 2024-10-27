@@ -1,13 +1,14 @@
 <template>
-  <div class="hero-wrapper">
-    <div class="hero-container">
+  <div class="hero-wrapper" ref="heroWrapper">
+    <div class="hero-container" ref="heroContainer">
       <div class="hero-image">
-        <img src="@/components/ui/amazon.png" alt="Amazon Screenshot">
+        <img src="@/components/ui/amazon2.png" alt="Amazon Screenshot">
       </div>
     </div>
-    <ExtensionGUI class="extension-gui" />
+    <ExtensionGUI class="extension-gui" ref="extensionGui" />
   </div>
 </template>
+
 
 <script>
 import ExtensionGUI from "@/components/ExtensionGUI.vue";
@@ -27,6 +28,8 @@ export default {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 0;
+  z-index: 5;
+  transform: translateY(-50px); /* Move the entire wrapper up */
 }
 
 .hero-container {
@@ -44,12 +47,17 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .hero-image img {
   max-width: 100%;
   height: auto;
-  border-radius: 16px;
+}
+
+img {
+  border: 4px solid #eaeaea;
+  border-radius: 10px;
 }
 
 .extension-gui {
@@ -60,19 +68,5 @@ export default {
   max-width: 300px;
   height: 60%;
   z-index: 10;
-}
-
-@media (max-width: 768px) {
-  .hero-container {
-    width: 90%;
-    margin-left: 0;
-  }
-
-  .extension-gui {
-    position: relative;
-    width: 80%;
-    max-width: none;
-    margin: 2rem auto 0;
-  }
 }
 </style>
