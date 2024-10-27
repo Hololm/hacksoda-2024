@@ -20,6 +20,7 @@ export default {
   align-items: center;
   background-color: rgba(144, 191, 255, 0.4);
   border-radius: 24px;
+  transform: translateX(-80px); /* Use transform instead of margin */
 }
 
 .hero-image {

@@ -6,6 +6,12 @@
         <p class="inner-text">Add to Chrome</p>
       </div>
     </div>
+    <div class="hero-frame">
+      <div class="inner-frame">
+        <img class="logo" src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-sm.f2523d97cbe0.png" alt="Mozilla Firefox Logo">
+        <p class="inner-text">Add to Firefox</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,21 +28,23 @@ export default {
 
 .hero-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 610px;
 }
 
 .hero-frame {
   width: 100%;
   max-width: 295px;
-  background-color: rgba(144, 191, 255, 0.4);
-  border-radius: 8px;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
   padding: 6px;
+  flex: 1;
+  min-width: 0;
 }
 
 .inner-frame {
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: white;
   display: flex;
   align-items: center;
@@ -45,12 +53,16 @@ export default {
   transform-origin: center;
   padding: 10px;
   justify-content: center;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border: 4px solid rgba(144, 191, 255, 0.6);
+  width: 100%;
 }
 
 .inner-frame:hover {
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
-  transform: translateY(-0.08rem);
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(144, 191, 255, 1);
+  transform: TranslateY(-0.2rem);
 }
 
 .inner-text {
@@ -60,6 +72,13 @@ export default {
   margin: 0;
   padding: 0;
   backface-visibility: hidden;
+  white-space: nowrap;
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 .logo {

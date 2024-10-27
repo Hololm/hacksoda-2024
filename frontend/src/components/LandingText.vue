@@ -13,7 +13,7 @@ export default {
     <div class="text-container">
       <p class="subtext">Shop with confidence.</p>
       <h1 class="title">Verify trusted Amazon sellers and avoid scams</h1>
-      <p class="downloadtext">Download Trustly with Chrome</p>
+      <p class="download-text">Download Trustly with Chrome</p>
     </div>
     <DownloadHero class="hero-component"/>
   </div>
@@ -29,6 +29,7 @@ export default {
   justify-content: flex-start;
   height: auto;
   width: 100%;
+  margin-top: -40px;
 }
 
 .text-container {
@@ -39,16 +40,16 @@ export default {
 .subtext {
   font-size: 36px;
   font-family: "Gilroy Medium", sans-serif;
-  line-height: 1;
+  line-height: 1.4;
   margin: 0;
   padding: 0;
 }
 
-.downloadtext {
+.download-text {
   font-size: 24px;
   font-family: "Gilroy Regular", sans-serif;
-  line-height: 1.0;
-  margin: 0;
+  line-height: 1.4;
+  margin: 40px 0 0 0;
   padding: 0;
 }
 
@@ -61,6 +62,9 @@ export default {
 }
 
 .hero-component {
-  margin-top: 24px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
 }
 </style>

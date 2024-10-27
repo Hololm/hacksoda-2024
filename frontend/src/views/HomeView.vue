@@ -5,9 +5,7 @@ import Container from "@/components/Container.vue";
 
 <template>
     <NavBar/>
-  <div>
   <Container/>
-  </div>
 </template>
 
 <style scoped>
