@@ -56,11 +56,8 @@ export default {
 }
 
 img {
-  border: 6px solid transparent;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2)) border-box;
-  border-radius: 12px;
+  border: 4px solid #eaeaea;
+  border-radius: 10px;
 }
 
 .extension-gui {

@@ -30,6 +30,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  backdrop-filter: blur(5px);
   background-image: linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2));
   z-index: 99999;
   border-bottom: 0.2rem solid rgba(210, 210, 210, 0.1);

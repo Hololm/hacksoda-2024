@@ -1,10 +1,9 @@
 <template>
   <div class="extension-container">
     <div class="extension-header">
-      <!-- You can add header elements here later -->
     </div>
     <div class="extension-body">
-      <HeroCard v-for="i in 4" :key="i"/>
+      <HeroCard v-for="i in 5" :key="i"/>
     </div>
   </div>
 </template>
@@ -30,11 +29,6 @@ export default {
   display: flex;
   flex-direction: column;
   z-index: 500;
-
-  border: 6px solid transparent;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2)) border-box;
   border-radius: 12px;
 }
 
@@ -42,17 +36,23 @@ export default {
   height: 40px;
   background-color: rgba(236, 236, 236, 1);
   border-bottom: 1px solid #eaeaea;
-  flex-shrink: 0; /* Prevent header from shrinking */
+  flex-shrink: 0;
 }
 
 .extension-body {
-  flex-grow: 1; /* Allow body to grow and fill remaining space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute space between cards */
-  align-items: center; /* Center cards horizontally */
+  gap: 8px; /* Consistent spacing between cards */
   padding: 8px;
-  background-color: rgba(236, 236, 236, 0.5);
-  overflow-y: auto; /* Add scroll if content exceeds container */
+  background-color: rgb(246, 246, 246);
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Add media query for height adjustment if needed */
+@media (max-height: 600px) {
+  .extension-body {
+    gap: 4px; /* Smaller gap for smaller screens */
+  }
 }
 </style>
