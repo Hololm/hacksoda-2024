@@ -57,7 +57,7 @@ export default {
 
 .footer-nav {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 .nav-item {

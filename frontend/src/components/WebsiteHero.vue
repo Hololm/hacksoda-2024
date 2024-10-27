@@ -88,7 +88,7 @@ export default {
   top: -10px;
   left: -10px;
   width: calc(100% + 20px);
-  height: calc(100% + 120px);
+  height: calc(100% + 112px);
   background-image: linear-gradient(to left, rgba(224, 25, 25, 0.2), rgba(123, 27, 229, 0.2));
   border-radius: 20px;
   transform: rotate(3deg);

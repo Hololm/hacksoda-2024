@@ -100,7 +100,7 @@ export default {
 
 .download-button:hover {
   transform: translateY(-0.12rem);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border-color: #e5e7eb;
 }
 

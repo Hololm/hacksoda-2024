@@ -3,6 +3,9 @@
     "name": "Trustify",
     "version": "0.1",
     "description": "Verify trusted Amazon sellers and avoid scams",
+    "action": {
+      "default_popup": "extension_menu/popup.html"
+    },
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
       {

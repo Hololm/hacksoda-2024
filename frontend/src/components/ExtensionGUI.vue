@@ -1,13 +1,8 @@
 <template>
   <div class="extension-container">
-    <!-- Search Header -->
     <div class="header-container">
-      <div class="search-wrapper">
-        <input type="text" class="search-input" value="iPhone 13 Case" readonly />
-        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+      <div class="header-text">
+        <p>Trusted Sellers</p>
       </div>
     </div>
 
@@ -50,7 +45,7 @@
 
 .extension-container {
   width: 100%;
-  height: 131%;
+  height: 130%;
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
@@ -60,44 +55,20 @@
 }
 
 .header-container {
-  padding: 12px 16px;
+  text-align: center;
   background-color: white;
+  margin-top: -6px;
+  margin-left: 12px;
+  margin-right: 12px;
+  justify-content: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 0 12px;
-}
-
-.search-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search-input {
-  width: 100%;
-  padding: 8px 32px 8px 12px;
-  margin-left: -12px;
-  margin-right: -12px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-family: "Gilroy Medium", sans-serif;
-  font-size: 14px;
-  color: #1a1a1a;
-  background-color: #ffffff; /* Slightly lighter background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.search-input:focus {
-  outline: none;
-}
-
-.search-input:hover {
   cursor: default;
 }
 
-.search-icon {
-  position: absolute;
-  right: 0;
-  color: #4b4b4b;
+.header-text {
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 24px;
+  color: #1a1a1a;
 }
 
 .extension-body {
@@ -128,16 +99,17 @@
 }
 
 .footer-left {
-  display: flex;
-  align-items: center;
-  position: absolute; /* Add this */
-  left: -10px; /* Add this */
+  position: absolute;
+  left: -2px;
+}
+
+.header-text p {
+  margin: 16px 0;
 }
 
 .footer-logo {
   width: 64px;
   height: 64px;
-  cursor: default;
 }
 
 .footer-text {
@@ -145,20 +117,20 @@
   font-size: 24px;
   color: #1a1a1a;
   cursor: default;
-  position: absolute; /* Add this */
-  left: 50%; /* Add this */
-  transform: translateX(-50%); /* Add this */
-  width: fit-content; /* Add this */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
 }
 
 .footer-icon {
-  width: 24px;
-  height: 24px;
-  cursor: default;
+  width: 32px;
+  height: 32px;
+  cursor: pointer; /* Changed from default */
   opacity: .8;
   transition: opacity 0.2s ease;
-  position: absolute; /* Add this */
-  right: 10px; /* Add this */
+  position: absolute;
+  right: 5%;
 }
 
 
