@@ -36,8 +36,6 @@ chrome.runtime.sendMessage({
     action: "analyzeProductListings",
     productDetailsArray
 });
-
-// Listen for messages from the background script to display trust scores
 // Listen for messages from the background script to display trust scores
 chrome.runtime.onMessage.addListener((request) => {
     if (request.action === "displayTrustScores") {
@@ -66,3 +64,71 @@ chrome.runtime.onMessage.addListener((request) => {
         });
     }
 });
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "getProductData") {
+    sendResponse({
+      productDetailsArray: productDetailsArray.map(product => ({
+        ...product,
+        imageUrl: getProductImage(product.sellerUUID),
+        trustScore: calculateLocalTrustScore(product)
+      }))
+    });
+  }
+  return true; // Keep the message channel open for async response
+});
+
+function getProductImage(asin) {
+  const productElement = document.querySelector(`[data-asin="${asin}"]`);
+  const imgElement = productElement?.querySelector('img[data-image-load]');
+  return imgElement?.src || null;
+}
+
+// Temporary local trust score calculation until background.js sends scores
+function calculateLocalTrustScore(product) {
+  // Simple placeholder calculation
+  let score = 0;
+  if (product.isShippedByAmazon) score += 60;
+  if (product.rating) score += product.rating * 8;
+  return Math.min(Math.round(score), 100);
+}
+
+// Add to content.js
+let trustScores = {};
+let productDetails = {};
+
+// Store trust scores when received from background.js
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === "displayTrustScores") {
+        trustScores = request.trustScores.reduce((acc, score) => {
+            acc[score.sellerUUID] = score.trustScore;
+            return acc;
+        }, {});
+
+        // Store product details
+        productDetails = productDetailsArray.reduce((acc, product) => {
+            acc[product.sellerUUID] = {
+                title: product.title,
+                imageUrl: getProductImage(product.sellerUUID)
+            };
+            return acc;
+        }, {});
+    }
+});
+
+// Handle requests for trust scores from popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "getTrustScores") {
+        sendResponse({
+            trustScores,
+            productDetails
+        });
+    }
+    return true;
+});
+
+function getProductImage(asin) {
+    const productElement = document.querySelector(`[data-asin="${asin}"]`);
+    const imgElement = productElement?.querySelector('img[data-image-load]');
+    return imgElement?.src || null;
+}
