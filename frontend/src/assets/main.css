@@ -24,4 +24,5 @@ html, body {
   padding: 0;
   overflow: hidden;
   background-color: rgb(255, 255, 255);
+  scroll-behavior: smooth;
 }

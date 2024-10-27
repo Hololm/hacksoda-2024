@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <router-link to="./"><div class="logo">Trustly</div></router-link>
+    <router-link to="./"><div class="logo">Trustify</div></router-link>
     <div class="nav-buttons">
       <button class="download-button">
         <img class="browser-logo" src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Chrome Logo">

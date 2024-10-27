@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-content">
-      <p>&copy; 2024 Trustly</p>
+      <p>&copy; 2024 Trustify</p>
       <nav class="footer-nav">
         <a href="https://github.com/Hololm/hacksoda-2024" target="_blank" class="nav-item">
           <div class="icon-wrapper">

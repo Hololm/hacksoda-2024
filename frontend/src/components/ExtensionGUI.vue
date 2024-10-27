@@ -1,9 +1,10 @@
 <template>
   <div class="extension-container">
     <div class="extension-header">
+      <h1 class="header-text">Trustify</h1>
     </div>
     <div class="extension-body">
-      <HeroCard v-for="i in 5" :key="i"/>
+      <HeroCard v-for="i in 3" :key="i"/>
     </div>
   </div>
 </template>
@@ -19,7 +20,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .extension-container {
   width: 100%;
   height: 100%;
@@ -37,22 +38,29 @@ export default {
   background-color: rgba(236, 236, 236, 1);
   border-bottom: 1px solid #eaeaea;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  justify-content: center;
+}
+
+.header-text {
+  font-family: "Proxima Nova", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
 }
 
 .extension-body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Consistent spacing between cards */
-  padding: 8px;
+  gap: 12px;
+  padding: 12px;
   background-color: rgb(246, 246, 246);
-  overflow: hidden; /* Prevent scrolling */
+  overflow-y: auto;
+  height: calc(100% - 40px);
 }
 
-/* Add media query for height adjustment if needed */
-@media (max-height: 600px) {
-  .extension-body {
-    gap: 4px; /* Smaller gap for smaller screens */
-  }
-}
 </style>
