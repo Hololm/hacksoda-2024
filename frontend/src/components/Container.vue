@@ -18,39 +18,51 @@ defineOptions({
 <template>
   <div class="container" ref="container">
     <div class="content">
-    <div class="side" ref="side">
-      <LandingText />
-      <WebsiteHero />
+      <div class="side" ref="side">
+        <div class="landing"><LandingText /></div>
+        <div class="website-container">
+          <div class="website"><WebsiteHero /></div>
+        </div>
+      </div>
     </div>
-  </div>
-      <WaveComponent />
+    <WaveComponent />
     <Footer />
   </div>
 </template>
-
 
 <style scoped>
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
   overflow: hidden;
   transition: transform 0.1s ease-out;
+}
+
+.content {
+  flex-grow: 1;
+  overflow: auto;
 }
 
 .side {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
-  flex-grow: 1;
-  overflow: auto; /* Allow scrolling within the side content if needed */
+  padding: 0 4%;
+  height: 100%;
+  position: relative;
 }
 
-.content {
-  flex-grow: 1;
-  overflow: auto;
+.website-container {
+  width: 42%;
+  display: flex;
+  align-items: center;
+}
+
+.website {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 :deep(.footer) {

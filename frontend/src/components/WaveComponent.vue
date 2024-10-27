@@ -83,7 +83,7 @@ export default {
 }
 
 .wave-base {
-  animation: moveWave 35s linear infinite;
+  animation: moveWave 45s linear infinite;
 }
 
 .wave-overlay {

@@ -22,10 +22,6 @@ export default {
 </script>
 
 <style scoped>
-* {
-  font-family: "Gilroy Regular", serif;
-}
-
 .hero-container {
   display: flex;
   flex-direction: row;
@@ -42,50 +38,50 @@ export default {
 }
 
 .inner-frame {
+  position: relative;
   height: 40px;
   border-radius: 16px;
   background-color: white;
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  transform-origin: center;
   padding: 10px;
   justify-content: center;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  border: 3px solid rgba(144, 191, 255, 0.6);
   width: 100%;
+  border: 3px solid #e0e0e0;
+  background-image: linear-gradient(white, white),
+                    linear-gradient(to left, rgba(224, 25, 25, 0.1), rgba(123, 27, 229, 0.2));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .inner-frame:hover {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.2);
-  border: 3px solid rgba(144, 191, 255, 1);
-  transform: TranslateY(-0.2rem);
+  transform: translateY(-0.2rem);
+  border-color: transparent;
 }
 
 .inner-text {
   font-family: "Gilroy Medium", sans-serif;
   max-width: calc(100% - 48px);
   font-size: 28px;
-  color: rgb(0, 0, 0);
+  color: #000;
   margin: 0;
   padding: 0;
   backface-visibility: hidden;
   white-space: nowrap;
-   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .logo {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
   padding-right: 10px;
 }

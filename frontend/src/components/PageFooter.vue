@@ -41,7 +41,7 @@ export default {
 
 .footer {
   border-top: 0.1rem solid #f8f8f8;
-  background-color: #fafafa;
+  background-color: #fbfbfb;
   padding: 5px 0 0 0;  /* Reduced padding from 10px to 5px */
   width: 100%;
   z-index: 10;
@@ -70,8 +70,8 @@ export default {
 }
 
 .icon-wrapper {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;

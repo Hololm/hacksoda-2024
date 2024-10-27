@@ -11,9 +11,9 @@ export default {
 <template>
   <div class="hero-container">
     <div class="text-container">
-      <p class="subtext">Shop with confidence.</p>
+      <p class="subtext">Secure Your Online Shopping Experience</p>
       <h1 class="title">Verify trusted Amazon sellers and avoid scams</h1>
-      <p class="download-text">Get your #1 shopping assistant with Chrome or Firefox</p>
+      <p class="download-text">Get your #1 shopping assistant now with Chrome or Firefox</p>
     </div>
     <DownloadHero class="hero-component"/>
   </div>
@@ -34,7 +34,7 @@ export default {
 }
 
 .text-container {
-  max-width: 800px;
+  max-width: 900px;
   position: relative;
 }
 
@@ -49,10 +49,11 @@ export default {
   font-size: 26px;
   font-family: "Gilroy Regular", sans-serif;
   padding-left: 0;
+  color: #313131;
 }
 
 .title {
-  font-size: 68px;
+  font-size: 64px;
   font-family: "Proxima Nova", sans-serif;
   margin: 10px 0;
   padding: 0;
